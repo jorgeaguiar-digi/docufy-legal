@@ -205,37 +205,33 @@ for i, txt in enumerate(goods):
         f"✓  {txt}", font_size=17, color=LIGHT)
 
 # ══════════════════════════════════════════════════════════════════
-#  SLIDE 7 — CASO REAL (Javier)
+#  SLIDE 7 — LO QUE NOS DICEN
 # ══════════════════════════════════════════════════════════════════
 s = add_slide()
 bg(s, NAVY)
 rect(s, 0, 0, 0.12, 7.5, GOLD)
 
 box(s, 0.55, 0.35, 11, 0.6,
-    "UN CASO REAL", font_size=20, bold=True, color=GOLD)
+    "LO QUE NOS DICEN LOS DESPACHOS", font_size=20, bold=True, color=GOLD)
 accent_line(s, top=1.0)
 
-box(s, 0.55, 1.15, 11, 1.1,
-    "Javier. Despacho en Madrid. 12 años en tráfico.",
-    font_size=28, bold=True, color=WHITE)
+box(s, 0.55, 1.2, 11.5, 1.3,
+    "Llevamos meses trabajando con los primeros despachos.",
+    font_size=30, bold=True, color=WHITE)
 
-box(s, 0.55, 2.35, 11, 1.5,
-    '"Teníamos dos administrativas a jornada completa solo persiguiendo a clientes\npara conseguir los DNI, partes y fotos. Empezábamos el lunes\ncon la bandeja limpia y el miércoles ya estábamos otra vez colapsados."',
-    font_size=20, italic=True, color=LIGHT)
+box(s, 0.55, 2.65, 11, 0.9,
+    "Lo que nos dicen es siempre lo mismo:",
+    font_size=22, color=LIGHT)
 
-# 3 stat boxes
-stats = [
-    ("x2", "expedientes/mes\ncon el mismo equipo"),
-    ("−80%", "tiempo de gestión\nadministrativa"),
-    ("+35%", "facturación media\npor caso"),
+quotes = [
+    '"El problema no es que no sepamos hacer el trabajo."',
+    '"Es que la mitad del tiempo no lo estamos ejerciendo."',
+    '"Somos abogados gestionando documentos, no casos."',
 ]
-for i, (num, label) in enumerate(stats):
-    left = 0.55 + i * 4.2
-    rect(s, left, 4.3, 3.8, 2.5, RGBColor(0x12, 0x18, 0x3C))
-    box(s, left + 0.15, 4.45, 3.5, 1.0,
-        num, font_size=46, bold=True, color=GOLD, align=PP_ALIGN.CENTER)
-    box(s, left + 0.15, 5.5, 3.5, 1.1,
-        label, font_size=17, color=LIGHT, align=PP_ALIGN.CENTER)
+for i, q in enumerate(quotes):
+    rect(s, 0.55, 3.7 + i * 1.05, 12.3, 0.88, RGBColor(0x12, 0x18, 0x3C))
+    box(s, 0.8,  3.75 + i * 1.05, 11.8, 0.78,
+        q, font_size=20, italic=True, color=LIGHT)
 
 # ══════════════════════════════════════════════════════════════════
 #  SLIDE 8 — SOLUCIÓN INTRO
@@ -349,7 +345,7 @@ s = add_slide()
 bg(s, NAVY)
 
 box(s, 0.55, 0.35, 12, 0.7,
-    "EL RESULTADO",
+    "PARA QUE ESTA DISENADO",
     font_size=28, bold=True, color=GOLD, align=PP_ALIGN.CENTER)
 accent_line(s, top=1.1)
 
@@ -372,45 +368,44 @@ for i, (num, label) in enumerate(metrics):
         label, font_size=19, color=LIGHT, align=PP_ALIGN.CENTER)
 
 # ══════════════════════════════════════════════════════════════════
-#  SLIDE 13 — OFERTA ADEVI
+#  SLIDE 13 — DESPACHOS FUNDADORES
 # ══════════════════════════════════════════════════════════════════
 s = add_slide()
 bg(s, NAVY)
-rect(s, 0, 0, 13.33, 0.12, GOLD)   # top gold bar
-rect(s, 0, 7.38, 13.33, 0.12, GOLD) # bottom gold bar
+rect(s, 0, 0, 13.33, 0.12, GOLD)
+rect(s, 0, 7.38, 13.33, 0.12, GOLD)
 
-box(s, 0.55, 0.4, 12, 0.8,
-    "OFERTA EXCLUSIVA PARA ASOCIADOS ADEVI",
+box(s, 0.55, 0.3, 12, 0.8,
+    "BUSCAMOS 10 DESPACHOS FUNDADORES EN ADEVI",
     font_size=26, bold=True, color=GOLD, align=PP_ALIGN.CENTER)
 
-box(s, 0.55, 1.3, 12, 1.0,
-    "Solo para los presentes hoy. No está en nuestra web.",
-    font_size=22, italic=True, color=LIGHT, align=PP_ALIGN.CENTER)
+box(s, 0.55, 1.2, 12, 0.75,
+    "Los que entren ahora construyen el producto con nosotros.",
+    font_size=20, italic=True, color=LIGHT, align=PP_ALIGN.CENTER)
 
-# Offer box
-rect(s, 2.0, 2.5, 9.3, 3.2, RGBColor(0x12, 0x18, 0x3C))
-rect(s, 2.0, 2.5, 9.3, 0.1, GOLD)
-box(s, 2.2, 2.65, 8.9, 0.9,
-    "Sesión de diagnóstico gratuita (30 min)",
-    font_size=22, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
-box(s, 2.2, 3.55, 8.9, 0.7,
-    "Analizamos vuestro despacho y os decimos exactamente",
-    font_size=18, color=LIGHT, align=PP_ALIGN.CENTER)
-box(s, 2.2, 4.15, 8.9, 0.7,
-    "cuántas horas podríais recuperar al mes.",
-    font_size=18, color=LIGHT, align=PP_ALIGN.CENTER)
-box(s, 2.2, 4.8, 8.9, 0.65,
-    "Sin compromiso. Sin presión.",
-    font_size=18, bold=True, color=GOLD, align=PP_ALIGN.CENTER)
+# 3 benefit boxes
+benefits = [
+    ("Precio\nde socio fundador", "Condiciones que\ndesaparecen cuando\ncerremos las 10 plazas."),
+    ("Acceso directo\nal equipo", "Vuestro flujo de trabajo\nse convierte en parte\ndel producto."),
+    ("Implementacion\ncompleta incluida", "Onboarding, formacion\ndel equipo y soporte\npersonalizado."),
+]
+for i, (title, body) in enumerate(benefits):
+    left = 0.45 + i * 4.25
+    rect(s, left, 2.15, 3.9, 3.8, RGBColor(0x12, 0x18, 0x3C))
+    rect(s, left, 2.15, 3.9, 0.1, GOLD)
+    box(s, left + 0.2, 2.3, 3.5, 1.1,
+        title, font_size=19, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
+    box(s, left + 0.15, 3.55, 3.6, 1.8,
+        body, font_size=16, color=LIGHT, align=PP_ALIGN.CENTER)
 
-box(s, 0.55, 5.9, 12, 0.6,
-    "Escaneáis el QR  →  Reserváis vuestra sesión  →  Nosotros hacemos el resto.",
-    font_size=19, color=LIGHT, align=PP_ALIGN.CENTER)
+box(s, 0.55, 6.15, 12, 0.55,
+    "Escaneáis el QR · Reserváis vuestra sesión de diagnostico · Nosotros hacemos el resto.",
+    font_size=17, color=LIGHT, align=PP_ALIGN.CENTER)
 
 # QR placeholder
-rect(s, 5.67, 6.55, 2.0, 0.7, RGBColor(0x1E, 0x28, 0x55))
-box(s, 5.67, 6.55, 2.0, 0.7,
-    "[ QR aquí ]", font_size=18, bold=True, color=GOLD, align=PP_ALIGN.CENTER)
+rect(s, 5.67, 6.75, 2.0, 0.55, RGBColor(0x1E, 0x28, 0x55))
+box(s, 5.67, 6.75, 2.0, 0.55,
+    "[ QR aqui ]", font_size=16, bold=True, color=GOLD, align=PP_ALIGN.CENTER)
 
 # ══════════════════════════════════════════════════════════════════
 #  SLIDE 14 — CIERRE
@@ -418,18 +413,23 @@ box(s, 5.67, 6.55, 2.0, 0.7,
 s = add_slide()
 bg(s, NAVY)
 
-box(s, 0.8, 1.5, 11.7, 1.3,
+box(s, 0.8, 0.7, 11.7, 1.0,
     "Acabáis de escuchar el futuro de la IA en el derecho.",
-    font_size=28, color=LIGHT, align=PP_ALIGN.CENTER)
+    font_size=26, color=LIGHT, align=PP_ALIGN.CENTER)
 
-rect(s, 3.5, 3.1, 6.3, 0.08, GOLD)
+rect(s, 3.5, 1.9, 6.3, 0.08, GOLD)
 
-box(s, 0.8, 3.3, 11.7, 1.5,
-    "Esto no es el futuro.\nEs lo que ya están haciendo despachos como el vuestro.",
-    font_size=36, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
+box(s, 0.8, 2.1, 11.7, 1.5,
+    "Esto no es el futuro.\nEs lo que ya esta pasando en despachos como el vuestro.",
+    font_size=34, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
 
-box(s, 0.8, 5.2, 11.7, 0.9,
-    "La pregunta es cuándo queréis empezar vosotros.",
+rect(s, 0.8, 3.85, 11.7, 1.5, RGBColor(0x12, 0x18, 0x3C))
+box(s, 1.0, 3.95, 11.3, 1.3,
+    "Los primeros despachos que automatizaron la gestion de trafico\nno esperaron a que fuera perfecto.\nEntraron cuando todavia se estaba construyendo. Y eso les dio ventaja.",
+    font_size=19, italic=True, color=LIGHT, align=PP_ALIGN.CENTER)
+
+box(s, 0.8, 5.6, 11.7, 0.8,
+    "La pregunta es cuando quereis empezar vosotros.",
     font_size=26, bold=True, color=GOLD, align=PP_ALIGN.CENTER)
 
 rect(s, 0, 6.7, 13.33, 0.8, RGBColor(0x12, 0x18, 0x3C))
