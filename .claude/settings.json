@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls ~/.claude/commands/ 2>/dev/null || echo \"No existe\"; ls .claude/commands/ 2>/dev/null || echo \"No existe en proyecto\")",
+      "Read(//c/Users/Jorge/.claude/**)",
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\Jorge\\\\.claude\\\\\" -Recurse -Filter \"*.md\" | Select-Object FullName | head -20)",
+      "WebFetch(domain:docufylegal.com)",
+      "Edit(/.claude/skills/deck/**)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Jorge\\CLAUDE\\docufy-legal",
+      "c:\\Users\\Jorge\\CLAUDE\\docufy-legal\\.claude\\skills"
+    ]
+  }
+}
