@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Docufy Legal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<style>
+
+/* ═══ VARIABLES ════════════════════════════════════════════ */
+:root {
+  --navy:  #0A0E2E;
+  --gold:  #C9A85C;
+  --white: #FFFFFF;
+  --light: #E8ECF5;
+  --card:  #12183C;
+  --muted: #4A5680;
+  --dim:   #7888AA;
+  --red:   #E83A3A;
+  --green: #4CD97A;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body, .reveal { background: var(--navy); }
+
+.reveal {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Reset Reveal defaults */
+.reveal .slides > section {
+  padding: 0 !important;
+  background: var(--navy);
+  text-align: left;
+}
+
+.reveal h1, .reveal h2, .reveal h3,
+.reveal h4, .reveal p, .reveal ul,
+.reveal li, .reveal span {
+  font-family: 'Inter', system-ui, sans-serif;
+  text-transform: none;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.15;
+  margin: 0;
+  padding: 0;
+}
+
+/* ═══ SLIDE BASE ═══════════════════════════════════════════ */
+.slide {
+  position: relative;
+  width: 1600px;
+  height: 900px;
+  background: var(--navy);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 72px 96px;
+}
+
+/* ═══ STRUCTURAL ELEMENTS ══════════════════════════════════ */
+.bar {
+  position: absolute;
+  left: 0; top: 0;
+  width: 5px; height: 100%;
+  background: var(--gold);
+}
+
+.logo-tr {
+  position: absolute;
+  top: 36px; right: 60px;
+  width: 108px;
+}
+
+.logo-hero {
+  display: block;
+  width: 220px;
+  margin: 0 auto;
+}
+
+.line {
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.line-full {
+  width: 100%;
+  height: 1px;
+  background: var(--card);
+}
+
+.contact-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 72px;
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.01em;
+}
+
+/* ═══ TYPOGRAPHY ════════════════════════════════════════════ */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.display {
+  font-size: 88px;
+  font-weight: 800;
+  line-height: 0.97;
+  letter-spacing: -0.04em;
+  color: var(--white);
+}
+
+.display.gold { color: var(--gold); }
+
+.h1 {
+  font-size: 62px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+.h1.gold { color: var(--gold); }
+
+.h2 {
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--light);
+}
+
+.body {
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.72;
+  color: var(--light);
+}
+
+.small {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.caption-gold {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* ═══ PAIN ITEMS (Slide 1) ══════════════════════════════════ */
+.pain-list { display: flex; flex-direction: column; gap: 8px; }
+
+.pain-item {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--light);
+  padding: 14px 20px;
+  border-left: 2px solid var(--gold);
+  background: var(--card);
+  line-height: 1.5;
+}
+
+/* ═══ COMPARE (Slide 6) ══════════════════════════════════════ */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  flex: 1;
+}
+
+.compare-col { padding: 0 40px 0 0; }
+.compare-col + .compare-col { padding: 0 0 0 40px; border-left: 1px solid var(--card); }
+
+.col-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.compare-item {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.compare-item .sym {
+  font-size: 14px;
+  flex-shrink: 0;
+  width: 20px;
+}
+
+/* ═══ PILLAR CARDS (Slide 7) ════════════════════════════════ */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 52px;
+}
+
+.pillar-card {
+  background: var(--card);
+  padding: 40px 36px 36px;
+  border-top: 2px solid var(--gold);
+}
+
+.pillar-num {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+}
+
+.pillar-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.pillar-body {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--dim);
+  line-height: 1.65;
+}
+
+/* ═══ DETAIL SLIDE (Slides 8-10) ════════════════════════════ */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 80px;
+  align-items: center;
+  flex: 1;
+}
+
+.stat-block { text-align: center; }
+
+.stat-number {
+  font-size: 110px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--gold);
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 12px;
+  line-height: 1.55;
+}
+
+/* ═══ CTA (Slide 11) ════════════════════════════════════════ */
+.cta-items { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
+
+.cta-item {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--card);
+}
+
+.cta-arrow {
+  font-size: 18px;
+  color: var(--gold);
+  padding-top: 2px;
+}
+
+.cta-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.cta-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--dim);
+  line-height: 1.5;
+}
+
+.qr-box {
+  position: absolute;
+  right: 96px;
+  bottom: 130px;
+  width: 160px;
+  height: 160px;
+  background: var(--card);
+  border: 1px solid rgba(201,168,92,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ═══ GOLD BORDERS ══════════════════════════════════════════ */
+.border-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--gold);
+}
+
+.border-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--gold);
+}
+
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+
+<!-- ═══════════════════════════════════════════════════
+  01 — HOOK
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="padding-left: 108px; gap: 0;">
+  <div class="bar"></div>
+  <img src="../brand/Docufy Legal - logo (3).png" class="logo-tr" alt="">
+
+  <p class="eyebrow" style="margin-bottom: 20px;">El mayor problema de los despachos de tráfico</p>
+
+  <p class="display gold">EL LUNES</p>
+  <p class="display" style="margin-bottom: 36px;">POR LA MAÑANA.</p>
+
+  <p class="body" style="font-weight: 300; font-size: 21px; margin-bottom: 32px; color: var(--dim);">
+    Son las 9h. Abres el móvil.
+  </p>
+
+  <div class="pain-list" style="max-width: 820px;">
+    <div class="pain-item">11 WhatsApps de clientes preguntando cómo va su caso.</div>
+    <div class="pain-item">Un expediente parado 10 días porque falta el parte amistoso.</div>
+    <div class="pain-item">Tu administrativa rehaciendo una reclamación por un error en la matrícula.</div>
+  </div>
+
+  <p style="font-size: 20px; font-weight: 600; color: var(--gold); margin-top: 36px; letter-spacing: 0.01em;">
+    ¿Os suena?
+  </p>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+  02 — PREGUNTA 1
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="padding-left: 108px; padding-bottom: 120px;">
+  <div class="bar"></div>
+
+  <p class="h2" style="font-size: 46px; margin-bottom: 16px;">
+    ¿Tienes ahora mismo algún expediente
+  </p>
+  <p class="h1 gold" style="font-size: 64px;">
+    parado porque el cliente<br>no ha mandado un documento?
+  </p>
+
+  <p style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
+     font-size: 16px; font-style: italic; color: var(--muted); letter-spacing: 0.04em; white-space: nowrap;">
+    Levantad la mano.
+  </p>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+  03 — PREGUNTA 2
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="padding-left: 108px; padding-bottom: 120px;">
+  <div class="bar"></div>
+
+  <p class="h2" style="font-size: 46px; margin-bottom: 16px;">
+    ¿Le has pedido el DNI a un cliente
+  </p>
+  <p class="h1 gold" style="font-size: 96px; letter-spacing: -0.04em;">
+    más de dos veces?
+  </p>
+
+  <p style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
+     font-size: 16px; font-style: italic; color: var(--muted); letter-spacing: 0.04em; white-space: nowrap;">
+    Levantad la mano.
+  </p>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+  04 — PREGUNTA 3
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="padding-left: 108px; padding-bottom: 120px;">
+  <div class="bar"></div>
+
+  <p class="h2" style="font-size: 46px; margin-bottom: 16px;">
+    ¿Te ha llamado hoy un cliente
+  </p>
+  <p class="h1 gold" style="font-size: 72px;">
+    preguntando en qué estado<br>está su caso?
+  </p>
+
+  <p style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
+     font-size: 16px; font-style: italic; color: var(--muted); letter-spacing: 0.04em; white-space: nowrap;">
+    Levantad la mano.
+  </p>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+  05 — REENCUADRE
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="justify-content: center; align-items: center; text-align: center; gap: 0;">
+
+  <p style="font-size: 22px; font-weight: 300; color: var(--dim); max-width: 760px; line-height: 1.5; margin-bottom: 36px;">
+    El problema no es que no seáis buenos abogados.
+  </p>
+
+  <div class="line" style="margin: 0 auto 36px;"></div>
+
+  <p class="h1" style="font-size: 58px; max-width: 900px; text-align: center; line-height: 1.1;">
+    Es que la mitad de vuestro tiempo<br>
+    <span style="color: var(--gold);">no lo estáis ejerciendo.</span>
+  </p>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+  06 — HOY vs EN 3 MESES
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="padding: 56px 96px; gap: 28px;">
+
+  <p class="eyebrow">¿Cómo podría ser tu semana?</p>
+
+  <div class="compare-grid" style="flex: 1;">
+
+    <!-- HOY -->
+    <div class="compare-col">
+      <p class="col-label" style="color: var(--red);">Hoy</p>
+      <div style="height: 2px; background: var(--red); margin-bottom: 20px;"></div>
+      <div class="compare-item" style="color: #8899BB;"><span class="sym">✗</span>Persigues documentos por WhatsApp</div>
+      <div class="compare-item" style="color: #8899BB;"><span class="sym">✗</span>Copias datos a mano en Word</div>
+      <div class="compare-item" style="color: #8899BB;"><span class="sym">✗</span>Sin visibilidad del estado de cada expediente</div>
+      <div class="compare-item" style="color: #8899BB;"><span class="sym">✗</span>Clientes que llaman constantemente</div>
+      <div class="compare-item" style="color: #8899BB; border-bottom: none;"><span class="sym">✗</span>Rechazas casos por falta de capacidad</div>
+    </div>
+
+    <!-- EN 3 MESES -->
+    <div class="compare-col">
+      <p class="col-label" style="color: var(--green);">En 3 meses</p>
+      <div style="height: 2px; background: var(--green); margin-bottom: 20px;"></div>
+      <div class="compare-item" style="color: var(--light);"><span class="sym" style="color: var(--green);">✓</span>Documentación recibida automáticamente</div>
+      <div class="compare-item" style="color: var(--light);"><span class="sym" style="color: var(--green);">✓</span>Escritos generados en segundos</div>
+      <div class="compare-item" style="color: var(--light);"><span class="sym" style="color: var(--green);">✓</span>Panel con estado en tiempo real</div>
+      <div class="compare-item" style="color: var(--light);"><span class="sym" style="color: var(--green);">✓</span>El cliente recibe actualizaciones solo</div>
+      <div class="compare-item" style="color: var(--light); border-bottom: none;"><span class="sym" style="color: var(--green);">✓</span>El doble de expedientes, mismo equipo</div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+  07 — LOS 3 PILARES
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="justify-content: flex-start; padding-top: 64px;">
+  <img src="../brand/Docufy Legal - logo (3).png" class="logo-tr" alt="">
+
+  <p class="eyebrow" style="margin-bottom: 12px;">La solución</p>
+  <p class="h1" style="font-size: 52px;">¿Cómo lo hacemos?</p>
+
+  <div class="pillars-grid">
+
+    <div class="pillar-card">
+      <p class="pillar-num">01</p>
+      <p class="pillar-title">Captación documental<br>automática</p>
+      <p class="pillar-body">Bot de WhatsApp activo 24/7 que solicita, valida y organiza cada documento sin intervención manual.</p>
+    </div>
+
+    <div class="pillar-card">
+      <p class="pillar-num">02</p>
+      <p class="pillar-title">Organización e interpretación<br>con IA</p>
+      <p class="pillar-body">Extrae nombre, DNI, matrícula, lesiones e importes de cada documento. Cero transcripciones manuales.</p>
+    </div>
+
+    <div class="pillar-card">
+      <p class="pillar-num">03</p>
+      <p class="pillar-title">Generación de escritos<br>automatizada</p>
+      <p class="pillar-body">Reclamaciones previas, requerimientos y minutas generadas en segundos con vuestras propias plantillas.</p>
+    </div>
+
+  </div>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+  08 — PILAR 01
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="padding-left: 108px; gap: 20px; justify-content: flex-start; padding-top: 60px;">
+  <div class="bar"></div>
+  <img src="../brand/Docufy Legal - logo (3).png" class="logo-tr" alt="">
+
+  <p class="eyebrow" style="margin-bottom: 24px;">01 / Captación documental</p>
+
+  <div class="detail-layout">
+    <div style="display: flex; flex-direction: column; gap: 28px;">
+      <p class="h1" style="font-size: 56px;">
+        Nunca más perseguiréis<br>un documento.
+      </p>
+      <div class="line"></div>
+      <p class="body" style="font-size: 18px; max-width: 640px;">
+        El sistema contacta automáticamente con el cliente, le pide
+        cada documento por WhatsApp, valida que esté completo y
+        correcto, y lo organiza en el expediente.<br><br>
+        Sin llamadas. Sin mensajes manuales. Sin recordatorios.
+      </p>
+      <p class="caption-gold">
+        Se recuperan 10–15 horas semanales de trabajo administrativo.
+      </p>
+    </div>
+
+    <div class="stat-block">
+      <p class="stat-number">80%</p>
+      <div style="width: 48px; height: 2px; background: var(--gold); margin: 16px auto;"></div>
+      <p class="stat-label">documentación completa<br>en menos de 48 horas</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+  09 — PILAR 02
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="padding-left: 108px; gap: 20px; justify-content: flex-start; padding-top: 60px;">
+  <div class="bar"></div>
+  <img src="../brand/Docufy Legal - logo (3).png" class="logo-tr" alt="">
+
+  <p class="eyebrow" style="margin-bottom: 24px;">02 / Organización e interpretación con IA</p>
+
+  <div class="detail-layout">
+    <div style="display: flex; flex-direction: column; gap: 28px;">
+      <p class="h1" style="font-size: 56px;">
+        El sistema lee los documentos.<br>
+        <span style="color: var(--gold);">Vosotros los usáis.</span>
+      </p>
+      <div class="line"></div>
+      <p class="body" style="font-size: 18px; max-width: 640px;">
+        La IA extrae automáticamente nombre, DNI, matrícula,
+        fecha del accidente, lesiones e importes de cada documento.<br><br>
+        Nada de copiar. Nada de transcribir. Nada de errores.
+      </p>
+      <p class="caption-gold">
+        De 15–30 minutos extrayendo datos a 0 segundos.
+      </p>
+    </div>
+
+    <div class="stat-block">
+      <p class="stat-number">−90%</p>
+      <div style="width: 48px; height: 2px; background: var(--gold); margin: 16px auto;"></div>
+      <p class="stat-label">errores humanos en<br>documentación a aseguradoras</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+  10 — PILAR 03
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="padding-left: 108px; gap: 20px; justify-content: flex-start; padding-top: 60px;">
+  <div class="bar"></div>
+  <img src="../brand/Docufy Legal - logo (3).png" class="logo-tr" alt="">
+
+  <p class="eyebrow" style="margin-bottom: 24px;">03 / Generación de escritos legales</p>
+
+  <div class="detail-layout">
+    <div style="display: flex; flex-direction: column; gap: 28px;">
+      <p class="h1" style="font-size: 56px;">
+        Vuestra reclamación previa,<br>generada en segundos.
+      </p>
+      <div class="line"></div>
+      <p class="body" style="font-size: 18px; max-width: 640px;">
+        El sistema genera automáticamente todos los escritos
+        legales usando vuestras propias plantillas:
+        reclamaciones previas, requerimientos, minutas.<br><br>
+        Revisáis. Firmáis. Enviáis. Solo eso.
+      </p>
+      <p class="caption-gold">
+        Cero errores de transcripción. El mismo estilo jurídico del despacho.
+      </p>
+    </div>
+
+    <div class="stat-block">
+      <p class="stat-number">&lt;10s</p>
+      <div style="width: 48px; height: 2px; background: var(--gold); margin: 16px auto;"></div>
+      <p class="stat-label">por escrito generado<br>vs. 30 min de forma manual</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+  11 — OFERTA / CTA
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="padding: 60px 96px 96px;">
+  <div class="border-top"></div>
+  <img src="../brand/Docufy Legal - logo (3).png" class="logo-tr" alt="">
+
+  <p class="eyebrow" style="margin-bottom: 16px;">Solo para los presentes hoy</p>
+  <p class="h1" style="font-size: 50px; margin-bottom: 6px;">Sesión de diagnóstico gratuita.</p>
+  <p style="font-size: 18px; font-weight: 300; font-style: italic; color: var(--dim); margin-bottom: 8px;">
+    Sin compromiso. Sin presión.
+  </p>
+
+  <div class="cta-items" style="max-width: 900px;">
+    <div class="cta-item">
+      <p class="cta-arrow">→</p>
+      <div>
+        <p class="cta-title">Diagnóstico del despacho</p>
+        <p class="cta-desc">Analizamos cuellos de botella y calculamos el coste real del problema.</p>
+      </div>
+    </div>
+    <div class="cta-item">
+      <p class="cta-arrow">→</p>
+      <div>
+        <p class="cta-title">Demo en directo de Docufy Legal</p>
+        <p class="cta-desc">Veis el sistema funcionando con un expediente real en tiempo real.</p>
+      </div>
+    </div>
+    <div class="cta-item" style="border-bottom: none;">
+      <p class="cta-arrow">→</p>
+      <div>
+        <p class="cta-title">Plan de automatización personalizado</p>
+        <p class="cta-desc">Os lleváis un roadmap concreto adaptado a vuestro flujo de trabajo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="qr-box">
+    <p style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);">Reservad aquí</p>
+    <p style="font-size: 13px; font-weight: 600; color: var(--gold); text-align: center;">[ QR ]</p>
+  </div>
+
+  <div class="border-bottom"></div>
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+  12 — CIERRE
+═══════════════════════════════════════════════════ -->
+<section>
+<div class="slide" style="justify-content: center; align-items: center; text-align: center; gap: 0; padding-bottom: 80px;">
+
+  <p style="font-size: 19px; font-weight: 300; color: var(--dim); margin-bottom: 36px; letter-spacing: 0.01em;">
+    Acabáis de escuchar el futuro de la IA en el derecho.
+  </p>
+
+  <img src="../brand/Docufy Legal - logo (3).png" class="logo-hero" style="width: 200px; margin-bottom: 40px;" alt="Docufy Legal">
+
+  <p class="h1" style="font-size: 46px; text-align: center; max-width: 860px; margin-bottom: 40px; font-weight: 500; line-height: 1.3;">
+    Esto no es el futuro.<br>
+    Es lo que ya están haciendo despachos como el vuestro.
+  </p>
+
+  <div class="line" style="margin: 0 auto 36px;"></div>
+
+  <p style="font-size: 26px; font-weight: 700; color: var(--gold); letter-spacing: -0.01em;">
+    La pregunta es cuándo queréis empezar vosotros.
+  </p>
+
+  <div class="contact-bar">
+    <span>docufylegal.com</span>
+    <span style="color: var(--muted);">·</span>
+    <span>info@docufylegal.com</span>
+    <span style="color: var(--muted);">·</span>
+    <span>+34 681 801 356</span>
+  </div>
+
+</div>
+</section>
+
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+Reveal.initialize({
+  width: 1600,
+  height: 900,
+  margin: 0,
+  minScale: 0.1,
+  maxScale: 2.5,
+  controls: false,
+  controlsTutorial: false,
+  progress: false,
+  hash: true,
+  keyboard: true,
+  overview: true,
+  center: false,
+  transition: 'fade',
+  transitionSpeed: 'slow',
+  backgroundTransition: 'fade'
+});
+</script>
+</body>
+</html>

@@ -5,11 +5,14 @@
       "Read(//c/Users/Jorge/.claude/**)",
       "Bash(Get-ChildItem \"C:\\\\Users\\\\Jorge\\\\.claude\\\\\" -Recurse -Filter \"*.md\" | Select-Object FullName | head -20)",
       "WebFetch(domain:docufylegal.com)",
-      "Edit(/.claude/skills/deck/**)"
+      "Edit(/.claude/skills/deck/**)",
+      "PowerShell($env:PYTHONIOENCODING = \"utf-8\"; python \"c:\\\\Users\\\\Jorge\\\\CLAUDE\\\\docufy-legal\\\\presentations\\\\build_despachos.py\")",
+      "PowerShell($env:PYTHONIOENCODING = \"utf-8\"; python \"c:\\\\Users\\\\Jorge\\\\CLAUDE\\\\docufy-legal\\\\presentations\\\\build_despachos_v2.py\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\Jorge\\CLAUDE\\docufy-legal",
-      "c:\\Users\\Jorge\\CLAUDE\\docufy-legal\\.claude\\skills"
+      "c:\\Users\\Jorge\\CLAUDE\\docufy-legal\\.claude\\skills",
+      "c:\\Users\\Jorge\\CLAUDE\\docufy-legal\\.claude"
     ]
   }
 }
